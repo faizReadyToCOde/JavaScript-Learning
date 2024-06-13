@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit & Remove in DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+  
+    <ul class = "language">
+        <li>Java</li>
+    </ul>
+
+   
+</body>
+<script>
+    function add_language(addLan){
+        const li = document.createElement('li');
+        li.innerHTML = `${addLan}`
+        document.querySelector('.language').appendChild(li)
+    }
+    add_language("Python");
+    add_language("Js");
+
+
+    function optimiseway_to_addLan(addLan){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(addLan));
+        document.querySelector(".language").appendChild(li);
+    }
+    optimiseway_to_addLan("C++");
+
+    //Edit
+    const editSecond = document.querySelector("li:nth-child(2)");
+    //1 way
+    // editSecond.innerHTML= "Mojo";
+
+    //2 way
+    const li = document.createElement('li');
+    li.textContent="Mogo";
+    editSecond.replaceWith(li);
+
+    //3 way
+    const editFirst = document.querySelector("li:nth-child(1)");
+    editFirst.outerHTML = '<li>TypeScript</li>'
+    
+    //Remove
+    const removeLi = document.querySelector('li:nth-child(3)');
+    removeLi.remove();
+    const removeLi2 = document.querySelector('li:last-child');
+    removeLi2.remove();
+
+
+</script>
+</html>
